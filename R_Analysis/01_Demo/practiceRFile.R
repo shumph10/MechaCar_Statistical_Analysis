@@ -158,19 +158,78 @@ shapiro.test(mtcars$wt)
 
 #characterize the population data with a density plot
 #import used car data csv into a population table
-population_table <- read.csv('used_car_data.csv', check.names = F, stringsAsFactors = F)
+used_cars <- read.csv('used_car_data.csv', check.names = F, stringsAsFactors = F)
 # import the dataset into ggplot to look at distribution of driven miles for the whole dat set
 plt_cars <- ggplot(population_table, aes(x=log10(Miles_Driven)))
 #plot the plt_cars to see the distribution of driven miles
 plt_cars + geom_density()
 
+##then create a sample group with sample_n() bc its a 2D obj
+sample_table <- population_table %>% sample_n(50)
+
+#then repeat above to make a density plot to look at distro 
+sample_car_plt <- ggplot(sample_table, aes(x=log10(Miles_Driven)))
+sample_car_plt + geom_density()
+
+?t.test()
+#do a t test for the miles driven column of the sample data with the mu = the mean of the population data
+t.test(log10(sample_table$Miles_Driven),mu=mean(log10(population_table$Miles_Driven)))
 
 
 
+#testing the paired 2 t-test with samples from diff population datasets
+##generate the samples
+mpg_data <- read.csv('mpg_modified.csv') #import dataset
+mpg_1999 <- mpg_data %>% filter(year==1999) #select only data points where the year is 1999
+mpg_2008 <- mpg_data %>% filter(year==2008) #select only data points where the year is 2008
+#comp the mean btwn the 2 samples t.test(sample1,sample2, paired=T so it knows its a paired comp)
+t.test(mpg_1999$hwy,mpg_2008$hwy,paired = T) #compare the mean difference between two samples
+#less than .05 so fail to reject the null - that the difference btwn paired obs (the true mean) is equal to 0
 
 
+##Det if there is stat diff in horsepower of a vehicle based on its engine type 
+#filter the mtcars for the col we want, hp and cyl
+mtcars_filt <- mtcars[,c("hp","cyl")]
+#convert the numeric column to a factor so it can be considered a category for the independ variable in the ANOVA
+mtcars_filt$cyl <- factor(mtcars_filt$cyl)
+#then use the aov() funct on the clean data
+#aov(Y~A or Y~A+B,data=dataset)
+aov(hp~cyl,data=mtcars_filt)
+##have to wrap the aov() funct in the summary() funct to see the p-values as well
+summary(aov(hp~cyl,data=mtcars_filt))
 
+#plot the data
+plt <- ggplot(mtcars,aes(x=hp,y=qsec)) #import dataset into ggplot2
+plt + geom_point() #create scatter plot
 
+#use cor() to test some of the data for correlation, like horsepower(hp) to quarter-mile race time(qsec)
+cor(mtcars$hp,mtcars$qsec) #calculate correlation coefficient
 
+#plot other data for correlation calc
+plt <- ggplot(used_cars,aes(x=Miles_Driven,y=Selling_Price)) #import dataset into ggplot2
+plt + geom_point() #create a scatter plot
+#use cor to see if there is correlation btwn miles driven and sales price
+cor(used_cars$Miles_Driven,used_cars$Selling_Price) #calculate correlation coefficient
 
+##make a matrix where the table has the variable names as rows and columns and the corresponding
+  ## correlation coeff as the values
+#first make the matrix with as.matrix() adding the desired columns
+used_matrix <- as.matrix(used_cars[,c("Selling_Price","Present_Price","Miles_Driven")]) #convert data frame into numeric matrix
+#then supply the matrix to the cor() function
+cor(used_matrix)
+
+#create a linear model
+lm(qsec ~ hp,mtcars) #create linear model
+summary(lm(qsec~hp,mtcars)) #summarize linear model
+
+#calc the data points to use for the line plot using the lm(qsec ~ hp,mtcars) coeff:
+model <- lm(qsec ~ hp,mtcars) #create linear model
+yvals <- model$coefficients['hp']*mtcars$hp +
+  model$coefficients['(Intercept)'] #determine y-axis values from linear model
+#plot the linear model over the scatter plot
+plt <- ggplot(mtcars,aes(x=hp,y=qsec)) #import dataset into ggplot2
+plt + geom_point() + geom_line(aes(y=yvals), color = "red") #plot scatter and linear model
+
+#see if there is a relation btwn variables and the quarter time
+summary(lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars)) #generate multiple linear regression model
 
