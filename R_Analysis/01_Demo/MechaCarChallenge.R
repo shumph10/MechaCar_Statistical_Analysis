@@ -25,3 +25,28 @@ lot_summary <- suspensionCoil %>% group_by(Manufacturing_Lot) %>% summarize(Mean
                                                                             Variance_PSI=var(PSI),
                                                                             Std_Dev_PSI=sd(PSI),
                                                                             .groups='keep')
+
+#Create a t-test on the suspension coils data frame
+  #det if the PSI across all manufacturing lots is stat diff from the population mean 
+  #of 1,500 PSI
+t.test(suspensionCoil$PSI,mu=15000)
+
+#use subset() to create subsets for each manufactoring lots PSI 
+lot1 <- subset(suspensionCoil, Manufacturing_Lot=="Lot1")
+lot2 <- subset(suspensionCoil, Manufacturing_Lot=="Lot2")
+lot3 <- subset(suspensionCoil, Manufacturing_Lot=="Lot3")
+
+#use created subsets to perform t tests on individual lots
+t.test(lot1$PSI, mu=1500)
+t.test(lot2$PSI, mu=1500)
+t.test(lot3$PSI, mu=1500)
+
+
+
+
+
+
+
+
+
+
