@@ -52,8 +52,19 @@ When looking at the summary statistics for each manufacturing lot individual it 
 
 ![lot3_ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828816-aac06400-2b4b-4e22-8360-a035d2d648dd.png)
 
+##**Study Design: MechaCar vs Competition**
 
+In order to quantify how MechaCar performs against competition there are a variety of metrics that could be compared to other car manufacturers. The metrics that would likely strike interest of consumers would be cost, fuel efficiency, safety ratings, if the car is available in all wheel drive(AWD). Additional data sets containing information on car metrics would be required, demo2.csv in resources would be a good starting data set, though others like R's built in Motor Tren Car Road Tests(mtcars) could be used as well. 
 
+To test each metric, MechaCars mean for the variable would be compared, with the hypothesis that that metric is better than the competition, and the null hypothesis being there is no statistical difference between metric results between MechaCars and competition. 
+
+To compare cost, the type of vehicle could be grouped, averaged and compared through summary statistics to see if MechaCars costs for vehicles is statistically different from that of the competition. Since the data type is continuous and categorical an ANOVA test could be used to determine statistical significance.
+
+To compare fuel efficiency miles per gallon (mpg) wether city, highway, or overall could compared with grouping and summary statistics. Joining data sets and grouping when running summary statistics would like create the most easily interpreted table so all information would be readily available in one result, like what was done with the summary statistics for suspension coils. Box plots could then be done to visually represent outliers.
+
+Many other metrics would be compared in similar ways with adjustments based on data types and the number of variables being compared. Use of this statistical testing and data types informational sheet could prove useful in deciding the best path to determining statistical testing type and interpretation of test results. (Visual representation supplied by Vanderbilt's Data Analytics Boot Camp, available for view in resources file):
+
+[Stats_Cheat_Sheet.pdf](https://github.com/shumph10/MechaCar_Statistical_Analysis/files/8987298/Stats_Cheat_Sheet.pdf)
 
 
 
