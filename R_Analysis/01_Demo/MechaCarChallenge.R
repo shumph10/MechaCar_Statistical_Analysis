@@ -17,5 +17,11 @@ total_summary <- suspensionCoil %>% summarize(Mean_PSI=mean(PSI),
                                               Median_PSI=median(PSI),
                                               Variance_PSI=var(PSI),
                                               Std_Dev_PSI=sd(PSI),
-                                              Number_Coils=n(),
                                               .groups='keep')
+
+#create summary that is grouped by the manufacturing lot
+lot_summary <- suspensionCoil %>% group_by(Manufacturing_Lot) %>% summarize(Mean_PSI=mean(PSI),
+                                                                            Median_PSI=median(PSI),
+                                                                            Variance_PSI=var(PSI),
+                                                                            Std_Dev_PSI=sd(PSI),
+                                                                            .groups='keep')
