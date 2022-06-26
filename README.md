@@ -33,15 +33,24 @@ From the output of linear regression and summary modeling we can concluded the f
 ##**T-Tests on Suspension Coils**
 T-tests were performed to test the hypothesis that PSI across all namufactoring lots are statistically different from the population mean (1,500 PSI). The null hypothesis being there will be no statistical difference in PSI from manufacturing lots from the population mean (1,500 PSI). 
 
-A t-test was performed on the data where all lots are represented together. The resulting t-test shows a p-value of 1, well above the significance level of p-value 0.05. This means for this data set we do not have sufficient evidence to reject the null hypothesis and therefore conclude that the means are statistically similar. Results of t-test for all data within the suspension coils data set is as follows:
+A t-test was performed on the data where all lots are represented together. The resulting t-test shows a p-value of 2.2e-16, well below the significance level of p-value 0.05. This means for this data set we **do** have sufficient evidence to reject the null hypothesis and therefore conclude that the means are statistically different. Results of t-test for all data within the suspension coils data set is as follows:
 
 ![ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828585-2ca837dc-202e-4aa5-b7a4-08ce9e81f11d.png)
 
+When looking at the summary statistics for each manufacturing lot individual it was found the total data set did not accurately represent the individual lots, therefore t-tests were performed on each lot individually, with the same hypothesis and null hypothesis in mind. 
+
+- Lot 1's t-test shows a p-value of 1, well above the significance level of p-value 0.05. This means for this data set we do not have sufficient evidence to reject the null hypothesis and therefore conclude that the means are statistically similar. The t-test for lot 1 is as depicted below:
+
+![lot1_ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828764-b56174b4-0efa-4b67-a823-41089d09fd63.png)
+
+- Lot 1's t-test shows a p-value of .6072, above the significance level of p-value 0.05. This means for this data set we do **not** have sufficient evidence to reject the null hypothesis and therefore conclude that the means are statistically similar. The t-test for lot 1 is as depicted below:
+
+![lot2_ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828812-acfb3a1d-7755-4e33-8428-917eb4b0056e.png)
 
 
+- Lot 1's t-test shows a p-value of .04168, below the significance level of p-value 0.05. This means for this data set we **do** have sufficient evidence to reject the null hypothesis and therefore conclude that the means are statistically different. The t-test for lot 1 is as depicted below:
 
-
-
+![lot3_ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828816-aac06400-2b4b-4e22-8360-a035d2d648dd.png)
 
 
 
