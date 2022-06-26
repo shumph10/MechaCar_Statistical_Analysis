@@ -30,4 +30,31 @@ From the output of linear regression and summary modeling we can concluded the f
 ![summ_by_lot_suspension_coil](https://user-images.githubusercontent.com/100040705/175827723-3502b4c2-95f0-421b-9efa-2ad42fe2ac52.png)
 
 
+##**T-Tests on Suspension Coils**
+T-tests were performed to test the hypothesis that PSI across all namufactoring lots are statistically different from the population mean (1,500 PSI). The null hypothesis being there will be no statistical difference in PSI from manufacturing lots from the population mean (1,500 PSI). 
+
+A t-test was performed on the data where all lots are represented together. The resulting t-test shows a p-value of 1, well above the significance level of p-value 0.05. This means for this data set we do not have sufficient evidence to reject the null hypothesis and therefore conclude that the means are statistically similar. Results of t-test for all data within the suspension coils data set is as follows:
+
+![ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828585-2ca837dc-202e-4aa5-b7a4-08ce9e81f11d.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
