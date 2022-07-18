@@ -1,5 +1,7 @@
 # R_Analysis_class
+Analysis of MechaCar dataset to establish relationships between features and miles per gallon(mpg) on a variety of cars. Various types of statistical analysis were performed using RStudio to establish potential relationships and the accuracy of each test respectively.
 
+----------------------------------------------
 
 ##**Linear Regression to Predict MPG**
 The following linear regression model and summary thereof were created using the MechaCar_mpg dataset. The output are as follows:
@@ -18,7 +20,7 @@ From the output of linear regression and summary modeling we can concluded the f
 - the slope of the linear model would not be considered to be zero. a slope of zero would indicate that there is no correlation between variables and mpg, the models p-value is 5.35e-11, which is well below the threshold of 0.05. This allows the conclusion to be drawn that there is sufficient evidence to **reject** the null hypothesis that the slope would be zero, and **accept** the hypothesis that the slope would be non-zero.
 - The model effectly predicts mpg of MechaCar prototpyes due to the linear models r-squared value of 0.7149. This indicates 71.49% of predictions will be determined by the model. Since the intercept is additionally shown to be significant (5.08e-08) there may be additional variables that can help explain variability of predicted mpg, and transformation or inclusion of additional data sets may be implimented to additionally improve the models predictions. 
 
-
+----------------------------------------------
 
 ##**Summary Statistics on Suspension Coils**
 - Design specifications for the MechaCar suspension  coils dictate that variance of suspension coils cannot exceet 100 pounds per square inch (PSI). Taking summary statistics with R, we can conclude from the entire dataset the variance for PSI is 62.29, well below the 100 PSI variance, as shown below:
@@ -28,6 +30,8 @@ From the output of linear regression and summary modeling we can concluded the f
 - Three different manufactoring lots are representated within the data. To ensure precise and consistent results, the same summary statistics were ran while grouping by manufactoring lot. From the resulting statistics we can conclude that only lot 1 & lot 2 are within PSI specifications, while lot 3 is above the 100 PSI variance limit. There is very low variance for lot 1 & 2 which has affected the total lots variance, making it within passing specifications. This is why in-depth analysis is critical so variance between individual lots can be scrutinized and problems identified. Lot 3 would need significant improvement to be considered passing the specifications as it is well above limits. Resulting tables from grouping summary statistics are as follows:
 
 ![summ_by_lot_suspension_coil](https://user-images.githubusercontent.com/100040705/175827723-3502b4c2-95f0-421b-9efa-2ad42fe2ac52.png)
+
+----------------------------------------------
 
 
 ##**T-Tests on Suspension Coils**
@@ -52,6 +56,8 @@ When looking at the summary statistics for each manufacturing lot individual it 
 
 ![lot3_ttest_suspension_coil](https://user-images.githubusercontent.com/100040705/175828816-aac06400-2b4b-4e22-8360-a035d2d648dd.png)
 
+----------------------------------------------
+
 ##**Study Design: MechaCar vs Competition**
 
 In order to quantify how MechaCar performs against competition there are a variety of metrics that could be compared to other car manufacturers. The metrics that would likely strike interest of consumers would be cost, fuel efficiency, safety ratings, if the car is available in all wheel drive(AWD). Additional data sets containing information on car metrics would be required, demo2.csv in resources would be a good starting data set, though others like R's built in Motor Tren Car Road Tests(mtcars) could be used as well. 
@@ -66,7 +72,12 @@ Many other metrics would be compared in similar ways with adjustments based on d
 
 [Stats_Cheat_Sheet.pdf](https://github.com/shumph10/MechaCar_Statistical_Analysis/files/8987298/Stats_Cheat_Sheet.pdf)
 
+------------------------------------
 
+##**Contact Me**
+
+Email: sarahhumphrey2016@outlook.com </br>
+[LinkedIn](https://www.linkedin.com/in/sarah-humphrey-data-analyst/)
 
 
 
